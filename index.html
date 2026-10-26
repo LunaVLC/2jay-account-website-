@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>for someone special ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --bg: #090909;
+  --panel: #111111;
+  --white: #f4f0ec;
+  --muted: #85817e;
+  --line: #292725;
+  --accent: #c9b8a6;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font: inherit; cursor: pointer; }
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(100% - 40px, 520px);
+  margin: auto;
+}
+
+nav {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+.logo { color: var(--accent); }
+
+.nav-note { color: var(--muted); }
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 65px 0 55px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+h1, h2, .serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(46px, 12vw, 70px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 25px 0 18px;
+}
+
+h1 em { color: var(--accent); }
+
+.intro {
+  color: #a7a19c;
+  font-size: 13px;
+  line-height: 2;
+  max-width: 280px;
+}
+
+.primary {
+  margin-top: 25px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #171411;
+  border-radius: 3px;
+  padding: 14px 22px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: .25s;
+}
+
+.primary:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.text-button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 11px;
+  padding: 12px;
+}
+
+.section {
+  padding: 54px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 13px 0 22px;
+}
+
+.message {
+  display: none;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 25px;
+  margin-top: 22px;
+  animation: reveal .5s ease;
+}
+
+.message.show { display: block; }
+
+.message p {
+  font-size: 13px;
+  line-height: 2.1;
+  color: #c2bbb5;
+}
+
+.message .signature {
+  color: var(--accent);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.photo {
+  background: #171614;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(35%);
+  transition: transform .5s, filter .5s;
+}
+
+.photo:active img {
+  transform: scale(1.04);
+  filter: grayscale(0);
+}
+
+.photo span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 10px 12px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  background: linear-gradient(transparent, #000b);
+}
+
+.music-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.album {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  background: #29251f;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+
+.track-info { flex: 1; min-width: 0; }
+
+.track-title { font-size: 12px; }
+
+.track-sub {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.play {
+  border: 1px solid #50483e;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: var(--white);
+  background: transparent;
+}
+
+.music-note {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 13px;
+}
+
+.letter-card {
+  border: 1px solid var(--line);
+  padding: 25px 20px;
+  background: #0d0d0d;
+}
+
+.letter-card p {
+  font-size: 13px;
+  line-height: 2.1;
+  color: #bbb4ae;
+}
+
+.letter-card .big-heart {
+  font-size: 25px;
+  color: var(--accent);
+  margin: 15px 0;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 30px 0 45px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.heart-float {
+  position: fixed;
+  bottom: -30px;
+  z-index: 20;
+  pointer-events: none;
+  animation: float-up 3.5s ease-out forwards;
+  color: var(--accent);
+}
+
+@keyframes float-up {
+  to {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<nav>
+  <div class="logo">♡ a little world</div>
+  <div class="nav-note">MADE FOR YOU</div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">a small place on the internet</div>
+  <h1>this is<br><em>for you.</em></h1>
+  <p class="intro">
+    Out of all the things I could make,<br>
+    I wanted to make something just for you.
+  </p>
+  <button class="primary" onclick="openSurprise()">
+    OPEN YOUR SURPRISE ↗
+  </button>
+  <button class="text-button" onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+    take a little look around ↓
+  </button>
+</header>
+
+<section class="section" id="surprise">
+  <div class="section-label">01 — A LITTLE SECRET</div>
+  <h2>Something for you.</h2>
+  <p class="intro">
+    There is something I have been meaning to tell you.
+  </p>
+
+  <div class="message" id="surpriseMessage">
+    <div class="section-label">JUST BETWEEN US</div>
+    <h2 class="serif">You are special.</h2>
+    <p>
+      Maybe I don't always say it out loud, but I'm really
+      glad that you exist. I hope life is gentle with you.
+      I hope you find reasons to smile even on ordinary days.
+    </p>
+    <p>
+      And if you ever forget how loved you can be,
+      let this little corner remind you.
+    </p>
+    <p class="signature">always, with love. ♡</p>
+  </div>
+</section>
+
+<section class="section" id="memories">
+  <div class="section-label">02 — LITTLE MOMENTS</div>
+  <h2>Pieces of a feeling.</h2>
+  <p class="intro" style="margin-bottom:25px">
+    Replace these pictures with your own favourite memories.
+  </p>
+
+  <div class="gallery">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=600&q=80" alt="Sunrise over a quiet landscape" loading="lazy">
+      <span>01 — a soft morning</span>
+    </div>
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80" alt="Ocean waves" loading="lazy">
+      <span>02 — somewhere peaceful</span>
+    </div>
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=600&q=80" alt="A peaceful mountain lake" loading="lazy">
+      <span>03 — a place to breathe</span>
+    </div>
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&w=600&q=80" alt="A beautiful sunset" loading="lazy">
+      <span>04 — just because</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="music">
+  <div class="section-label">03 — PRESS PLAY</div>
+  <h2>A song for the moment.</h2>
+
+  <div class="music-card">
+    <div class="album">♫</div>
+    <div class="track-info">
+      <div class="track-title" id="trackTitle">A little melody</div>
+      <div class="track-sub" id="trackSub">a moment to slow down</div>
+    </div>
+    <button class="play" id="playButton" aria-label="Play or pause music" onclick="toggleMusic()">▶</button>
+  </div>
+  <p class="music-note" id="musicStatus">
+    Music starts when you press play. You can use your own audio file too.
+  </p>
+  <audio id="audio" preload="none"
+    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+</section>
+
+<section class="section" id="letter">
+  <div class="section-label">04 — WORDS I KEPT</div>
+  <h2>One little letter.</h2>
+
+  <div class="letter-card">
+    <div class="section-label">DEAR YOU,</div>
+    <p>
+      If I could wish a few things for you, I would wish you
+      a peaceful heart, people who understand you, and the
+      courage to keep choosing what makes you happy.
+    </p>
+    <p>
+      I hope you never feel like you have to be perfect
+      to deserve kindness. You can be tired. You can have
+      difficult days. You can take your time.
+    </p>
+    <p>
+      Thank you for being a part of this little story.
+      Wherever life takes you, I hope something good
+      always finds its way to you.
+    </p>
+    <div class="big-heart">♡</div>
+    <p class="serif" style="color:var(--accent);font-size:19px">
+      With all my heart.
+    </p>
+  </div>
+  <div style="text-align:center;margin-top:22px">
+    <button class="primary" onclick="sendLove()">SEND A LITTLE LOVE ♡</button>
+  </div>
+</section>
+
+<footer>
+  MADE WITH CARE, JUST FOR YOU ♡
+  <p style="letter-spacing:0;margin-top:12px">some feelings deserve their own little place.</p>
+</footer>
+</div>
+
+<script>
+function openSurprise() {
+  const message = document.getElementById('surpriseMessage');
+  message.classList.toggle('show');
+  if (message.classList.contains('show')) {
+    message.scrollIntoView({behavior:'smooth', block:'center'});
+    makeHearts();
+  }
+}
+
+function makeHearts() {
+  const symbols = ['♡', '♥', '✦', '✧'];
+  for (let i = 0; i < 18; i++) {
+    const heart = document.createElement('span');
+    heart.className = 'heart-float';
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (12 + Math.random() * 20) + 'px';
+    heart.style.animationDelay = (Math.random() * .8) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4500);
+  }
+}
+
+function sendLove() {
+  makeHearts();
+  alert('A little love is on its way to you. ♡');
+}
+
+const audio = document.getElementById('audio');
+const playButton = document.getElementById('playButton');
+const musicStatus = document.getElementById('musicStatus');
+
+async function toggleMusic() {
+  if (audio.paused) {
+    musicStatus.textContent = 'Loading music...';
+    try {
+      await audio.play();
+      playButton.textContent = 'Ⅱ';
+      musicStatus.textContent = 'Now playing ♡';
+    } catch (error) {
+      musicStatus.textContent = 'Music could not load. Check your internet connection or replace the audio URL in the HTML.';
+    }
+  } else {
+    audio.pause();
+    playButton.textContent = '▶';
+    musicStatus.textContent = 'Paused. Press play whenever you like.';
+  }
+}
+
+audio.addEventListener('ended', () => {
+  playButton.textContent = '▶';
+  musicStatus.textContent = 'That was your little moment. Press play to listen again.';
+});
+</script>
+</body>
+</html>
